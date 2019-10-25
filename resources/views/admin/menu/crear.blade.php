@@ -6,6 +6,8 @@ Sistemas Menus
 
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        @include('includes.form-error')
+        @include('includes.mensaje')
         <div class="box box-danger">
             <div class="box-header with-border">
                 <h3 class="box-title">Menu Crear</h3>
