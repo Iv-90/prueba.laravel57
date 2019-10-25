@@ -16,6 +16,10 @@ Route::get('/','InicioController@index');
 Route::group(['namespace' => 'Admin'], function () {
   Route::get('permiso', 'PermisoController@index')->name('permiso');
   Route::get('crear_permiso', 'PermisoController@crear')->name('crear_permiso');
+  /*RUTAS DEL MENU*/
+  Route::get('menu', 'MenuController@index')->name('menu');
+  Route::get('crear_menu', 'MenuController@crear')->name('crear_menu');
+  Route::post('guardar_menu', 'MenuController@guardar')->name('guardar_menu');
 });
 
 Route::name('admin.')->prefix('admin')->group(function () {
