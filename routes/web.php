@@ -20,6 +20,10 @@ Route::group(['namespace' => 'Admin'], function () {
   Route::get('menu', 'MenuController@index')->name('menu');
   Route::get('crear_menu', 'MenuController@crear')->name('crear_menu');
   Route::post('guardar_menu', 'MenuController@guardar')->name('guardar_menu');
+  Route::get('menu/{id}/editar', 'MenuController@editar')->name('editar_menu');
+  Route::put('menu/{id}', 'MenuController@actualizar')->name('actualizar_menu');
+  Route::get('menu/{id}/eliminar', 'MenuController@eliminar')->name('eliminar_menu');
+  Route::post('guardar_orden', 'MenuController@guardarOrden')->name('guardar_orden');
 });
 
 Route::name('admin.')->prefix('admin')->group(function () {
