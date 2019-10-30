@@ -18,9 +18,11 @@
   <!-- AdminLTE Skins. Choose a skin from the css/skins
             folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="{{asset("assets/$theme/dist/css/skins/_all-skins.min.css")}}">
-  
+
+  <link rel="stylesheet" href="{{asset("assets/js/toastr/toastr.min.css")}}">
+
   @yield('styles')
-  
+
   <link rel="stylesheet" href="{{asset("assets/css/custom.css")}}">
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
@@ -61,6 +63,9 @@
   @yield('scriptsPlugins')
   <script src="{{asset("assets/js/jquery-validation/jquery.validate.min.js")}}"></script>
   <script src="{{asset("assets/js/jquery-validation/localization/messages_es.min.js")}}"></script>
+  <script src="{{asset("assets/js/sweetalert/sweetalert.min.js")}}"></script>
+  <script src="{{asset("assets/js/toastr/toastr.min.js")}}"></script>
+  <script src="{{asset("assets/js/scripts.js")}}"></script>
   <script src="{{asset("assets/js/funciones.js")}}"></script>
 
   @yield('scripts')

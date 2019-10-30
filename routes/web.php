@@ -13,7 +13,7 @@
 
 Route::get('/','InicioController@index');
 
-Route::group(['namespace' => 'Admin'], function () {
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
   Route::get('permiso', 'PermisoController@index')->name('permiso');
   Route::get('crear_permiso', 'PermisoController@crear')->name('crear_permiso');
   /*RUTAS DEL MENU*/
@@ -24,6 +24,13 @@ Route::group(['namespace' => 'Admin'], function () {
   Route::put('menu/{id}', 'MenuController@actualizar')->name('actualizar_menu');
   Route::get('menu/{id}/eliminar', 'MenuController@eliminar')->name('eliminar_menu');
   Route::post('guardar_orden', 'MenuController@guardarOrden')->name('guardar_orden');
+  /*RUTAS ROL*/
+  Route::get('rol', 'RolController@index')->name('rol');
+  Route::get('rol/crear', 'RolController@crear')->name('crear_rol');
+  Route::post('rol', 'RolController@guardar')->name('guardar_rol');
+  Route::get('rol/{id}/editar', 'RolController@editar')->name('editar_rol');
+  Route::put('rol/{id}', 'RolController@actualizar')->name('actualizar_rol');
+  Route::delete('rol/{id}', 'RolController@eliminar')->name('eliminar_rol');
 });
 
 Route::name('admin.')->prefix('admin')->group(function () {
