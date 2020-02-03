@@ -11,11 +11,13 @@
 |
 */
 
-Route::get('/','InicioController@index')->name('inicio');
+
+Route::get('/', 'InicioController@index')->name('inicio');
 Route::get('seguridad/login', 'Seguridad\LoginController@index')->name('login');
 Route::post('seguridad/login', 'Seguridad\LoginController@login')->name('login_post');
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth'], function () {
-  Route::get('','AdminController@index');
+Route::get('seguridad/logout', 'Seguridad\LoginController@logout')->name('logout');
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth', 'superadmin']], function () {
+  Route::get('', 'AdminController@index');
   Route::get('permiso', 'PermisoController@index')->name('permiso');
   Route::get('crear_permiso', 'PermisoController@crear')->name('crear_permiso');
   /*RUTAS DEL MENU*/
@@ -36,7 +38,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
   /*RUTAS MENU_ROL*/
   Route::get('menu-rol', 'MenuRolController@index')->name('menu_rol');
   Route::post('menu-rol', 'MenuRolController@guardar')->name('guardar_menu_rol');
-  
 });
 
 Route::name('admin.')->prefix('admin')->group(function () {
@@ -52,4 +53,3 @@ Route::prefix('por')->group(function () {
 Route::get('asco/posts', function () {
   return 'pololas';
 })->name('post');
-

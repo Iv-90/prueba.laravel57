@@ -47,7 +47,7 @@
                 </div>
             </div>
             @endif
-            <form action="{{route('login_post')}}" method="POST" autocomplete="off">
+            <form action="{{route('login_post')}}" method="post" autocomplete="off">
                 @csrf
                 <div class="form-group has-feedback">
                     <input type="text" name="usuario" class="form-control" value="{{old('usuario')}}" placeholder="Usuario">
