@@ -22,7 +22,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
   Route::get('crear_permiso', 'PermisoController@crear')->name('crear_permiso');
   /*RUTAS DEL MENU*/
   Route::get('menu', 'MenuController@index')->name('menu');
-  Route::get('crear_menu', 'MenuController@crear')->name('crear_menu');
+  Route::get('menu/crear', 'MenuController@crear')->name('crear_menu');
   Route::post('guardar_menu', 'MenuController@guardar')->name('guardar_menu');
   Route::get('menu/{id}/editar', 'MenuController@editar')->name('editar_menu');
   Route::put('menu/{id}', 'MenuController@actualizar')->name('actualizar_menu');

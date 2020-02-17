@@ -25,6 +25,7 @@ class Menu extends Model
         }
         return $children;
     }
+
     public function getPadres($front)
     {
         if ($front) {
@@ -41,6 +42,7 @@ class Menu extends Model
                 ->toArray();
         }
     }
+
     public static function getMenu($front = false)
     {
         $menus = new Menu();
@@ -54,6 +56,7 @@ class Menu extends Model
         }
         return $menuAll;
     }
+
     public function guardarOrden($menu)
     {
         $menus = json_decode($menu);
@@ -64,16 +67,19 @@ class Menu extends Model
                     $update_id = $vchild->id;
                     $parent_id = $value->id;
                     $this->where('id', $update_id)->update(['menu_id' => $parent_id, 'orden' => $key + 1]);
+
                     if (!empty($vchild->children)) {
                         foreach ($vchild->children as $key => $vchild1) {
                             $update_id = $vchild1->id;
                             $parent_id = $vchild->id;
                             $this->where('id', $update_id)->update(['menu_id' => $parent_id, 'orden' => $key + 1]);
+
                             if (!empty($vchild1->children)) {
                                 foreach ($vchild1->children as $key => $vchild2) {
                                     $update_id = $vchild2->id;
                                     $parent_id = $vchild1->id;
                                     $this->where('id', $update_id)->update(['menu_id' => $parent_id, 'orden' => $key + 1]);
+
                                     if (!empty($vchild2->children)) {
                                         foreach ($vchild2->children as $key => $vchild3) {
                                             $update_id = $vchild3->id;
@@ -89,5 +95,4 @@ class Menu extends Model
             }
         }
     }
-    
 }
