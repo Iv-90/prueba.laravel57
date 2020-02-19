@@ -14,9 +14,10 @@ Sistemas Menus
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         @include('includes.form-error')
         @include('includes.mensaje')
-        <div class="box box-danger">
+        <div class="box box-primary">
             <div class="box-header with-border">
                 <h3 class="box-title">Menu Crear</h3>
+                <a href="{{route('menu')}}" class="btn btn-info btn-sm pull-right">Listado</a>
             </div>
             <form action="{{route('guardar_menu')}}" id="form-general" class="form-horizontal" method="POST" autocomplete="off">
                 @csrf

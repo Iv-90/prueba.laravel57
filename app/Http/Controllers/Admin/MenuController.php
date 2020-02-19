@@ -45,17 +45,6 @@ class MenuController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function mostrar($id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -63,7 +52,8 @@ class MenuController extends Controller
      */
     public function editar($id)
     {
-        //
+        $data = Menu::findOrFail($id);
+        return view('admin.menu.editar', compact('data'));
     }
 
     /**
@@ -73,9 +63,11 @@ class MenuController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function actualizar(Request $request, $id)
+    public function actualizar(ValidacionMenu $request, $id)
     {
-        return redirect('menu')->with('mensaje', 'Menu ACTUALIZADO con exito');
+        //dd($id);
+        Menu::findOrFail($id)->update($request->all());
+        return redirect('admin/menu')->with('mensaje', 'Menu ACTUALIZADO con exito');
     }
 
     /**
@@ -86,7 +78,8 @@ class MenuController extends Controller
      */
     public function eliminar($id)
     {
-        //
+        Menu::destroy($id);
+        return redirect('admin/menu')->with('mensaje', 'Menu ELIMINADO con exito');
     }
 
     public function guardarOrden(Request $request)
