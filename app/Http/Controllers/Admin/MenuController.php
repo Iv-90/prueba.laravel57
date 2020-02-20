@@ -41,7 +41,7 @@ class MenuController extends Controller
     {
         Menu::create($request->all());
 
-        return redirect('crear_menu')->with('mensaje','Menu creado con exito');
+        return redirect('admin/menu')->with('mensaje','Menu creado con exito');
     }
 
     /**
